@@ -35,7 +35,7 @@ pipeline {
                             mvn verify sonar:sonar \
                             -Dsonar.projectKey=AppSpringboot \
                             -Dsonar.host.url=http://172.16.100.9:9000 \
-                            -Dsonar.login=sqp_5d11f687cd5f2e53eaf08739b7c01d6005a90b03
+                            -Dsonar.login=squ_6c9fe4729fab713e2b1b1a17ac2e18473743a385
                         '''
                     }
                 }
