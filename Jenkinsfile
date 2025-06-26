@@ -1,24 +1,28 @@
 pipeline {
-  agent any
+    agent any
 
-  tools {
-    jdk 'Java17'        // ou le nom exact donné dans Jenkins
-    maven 'localMaven'  // idem ici
-  }
-
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn clean install'
-      }
+    tools {
+        jdk 'jdk17'
+        maven 'localMaven'
     }
 
-    stage('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('MySonarQube') {
-          sh 'mvn sonar:sonar'
+    stages {
+        stage('Build') {
+            steps {
+                dir('monprojet') {
+                    sh 'mvn clean install'
+                }
+            }
         }
-      }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    dir('monprojet') {
+                        sh 'mvn verify sonar:sonar'
+                    }
+                }
+            }
+        }
     }
-  }
 }
