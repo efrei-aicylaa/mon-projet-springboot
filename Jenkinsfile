@@ -2,8 +2,8 @@ pipeline {
   agent any
 
   tools {
-    jdk 'Java17'
-    maven 'localMaven'
+    jdk 'Java17'        // ou le nom exact donné dans Jenkins
+    maven 'localMaven'  // idem ici
   }
 
   stages {
