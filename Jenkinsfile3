@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy to Nexus') {
             steps {
                 dir('monprojet') {
-                    sh 'mvn deploy -DaltDeploymentRepository=nexus::default::http://172.16.100.9:8081/repository/monprojet-snapshots'
+                    sh 'mvn deploy -DaltDeploymentRepository=nexus::default::http://172.16.100.9:8081/repository/AppSpring'
                 }
             }
         }
