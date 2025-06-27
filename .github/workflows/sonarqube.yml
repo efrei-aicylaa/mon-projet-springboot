@@ -29,6 +29,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: SonarQube Scan
+        working-directory: monprojet
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
